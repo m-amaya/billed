@@ -1,3 +1,3 @@
-# Bill Manager
+# Billed
 
 > Simple app to manage bills

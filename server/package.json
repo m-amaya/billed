@@ -1,0 +1,21 @@
+{
+  "name": "billed",
+  "version": "1.0.0",
+  "description": "GraphQL API for managing bills",
+  "main": "./server.ts",
+  "repository": "git@github.com:m-amaya/billed.git",
+  "author": "m-amaya (mamaya.dev@gmail.com)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node ./server.ts"
+  },
+  "dependencies": {
+    "apollo-server": "^2.13.1",
+    "graphql": "^15.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  }
+}
