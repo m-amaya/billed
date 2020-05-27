@@ -1,7 +1,9 @@
 import { ApolloServer } from 'apollo-server';
 
-const server = new ApolloServer({});
+import schema from './schema';
+
+const server = new ApolloServer({ schema });
 
 server
-  .listen({ port: 8000 })
+  .listen({ port: 4000 })
   .then(({ url }) => console.log(`🔮 Magic happens on ${url}`));
