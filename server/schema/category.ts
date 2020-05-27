@@ -16,9 +16,21 @@ export const typeDef = `
     list: [Category]!
   }
 
+  type CategoryResponse {
+    success: Boolean!
+    message: String
+    data: Category
+  }
+
   extend type Query {
     categoryList(pageNum: Int, count: Int): CategoryList
     category(id: ID!): Category
+  }
+
+  extend type Mutation {
+    categoryAdd(): CategoryResponse
+    categoryEdit(id: ID!): CategoryResponse
+    categoryDelete(id: ID!): CategoryResponse
   }
 `;
 

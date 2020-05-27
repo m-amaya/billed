@@ -18,9 +18,21 @@ export const typeDef = `
     list: [CreditCardAccount]!
   }
 
+  type CreditCardAccountResponse {
+    success: Boolean!
+    message: String
+    data: CreditCardAccount
+  }
+
   extend type Query {
     creditCardAccountList(pageNum: Int, count: Int): CreditCardAccountList
     creditCardAccount(id: ID!): CreditCardAccount
+  }
+
+  extend type Mutation {
+    creditCardAccountAdd(): CreditCardAccountResponse
+    creditCardAccountEdit(id: ID!): CreditCardAccountResponse
+    creditCardAccountDelete(id: ID!): CreditCardAccountResponse
   }
 `;
 

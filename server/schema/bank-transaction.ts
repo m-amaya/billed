@@ -35,9 +35,21 @@ export const typeDef = `
     list: [BankTransaction]!
   }
 
+  type BankTransactionResponse {
+    success: Boolean!
+    message: String
+    data: BankTransaction
+  }
+
   extend type Query {
     bankTransactionList(pageNum: Int, count: Int): BankTransactionList
     bankTransaction(id: ID!): BankTransaction
+  }
+
+  extend type Mutation {
+    bankTransactionAdd(): BankTransactionResponse
+    bankTransactionEdit(id: ID!): BankTransactionResponse
+    bankTransactionDelete(id: ID!): BankTransactionResponse
   }
 `;
 

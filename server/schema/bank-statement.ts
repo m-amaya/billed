@@ -26,9 +26,21 @@ export const typeDef = `
     list: [BankStatement]!
   }
 
+  type BankStatementResponse {
+    success: Boolean!
+    message: String
+    data: BankStatement
+  }
+
   extend type Query {
     bankStatementList(pageNum: Int, count: Int): BankStatementList
     bankStatement(id: ID!): BankStatement
+  }
+
+  extend type Mutation {
+    bankStatementAdd(startDate: Int!, endDate: Int!, begBalance: Float!, deposits: Float!, withdrawals: Float!, endBalance: Float!, bankId: ID!): BankStatementResponse
+    bankStatementEdit(id: ID!): BankStatementResponse
+    bankStatementDelete(id: ID!): BankStatementResponse
   }
 `;
 

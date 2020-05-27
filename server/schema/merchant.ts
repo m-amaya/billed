@@ -16,9 +16,21 @@ export const typeDef = `
     list: [Merchant]!
   }
 
+  type MerchantResponse {
+    success: Boolean!
+    message: String
+    data: Merchant
+  }
+
   extend type Query {
     merchantList(pageNum: Int, count: Int): MerchantList
     merchant(id: ID!): Merchant
+  }
+
+  extend type Mutation {
+    merchantAdd(): MerchantResponse
+    merchantEdit(id: ID!): MerchantResponse
+    merchantDelete(id: ID!): MerchantResponse
   }
 `;
 

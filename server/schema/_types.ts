@@ -19,6 +19,12 @@ export interface List<T> {
   list: T[];
 }
 
+export interface Response<T> {
+  success: boolean;
+  message?: string;
+  data?: T;
+}
+
 export type ListArgs = Partial<Omit<Page, 'pageTotal'>>;
 
 export type OneArgs = { id: string };

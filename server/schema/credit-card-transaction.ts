@@ -28,9 +28,21 @@ export const typeDef = `
     list: [CreditCardTransaction]!
   }
 
+  type CreditCardTransactionResponse {
+    success: Boolean!
+    message: String
+    data: CreditCardTransaction
+  }
+
   extend type Query {
     creditCardTransactionList(pageNum: Int, count: Int): CreditCardTransactionList
     creditCardTransaction(id: ID!): CreditCardTransaction
+  }
+
+  extend type Mutation {
+    creditCardTransactionAdd(): CreditCardTransactionResponse
+    creditCardTransactionEdit(id: ID!): CreditCardTransactionResponse
+    creditCardTransactionDelete(id: ID!): CreditCardTransactionResponse
   }
 `;
 

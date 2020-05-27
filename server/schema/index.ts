@@ -39,6 +39,10 @@ const Query = `
     _empty: String
   }
 
+  type Mutation {
+    _empty: String
+  }
+
   type Page {
     pageNum: Int
     count: Int
