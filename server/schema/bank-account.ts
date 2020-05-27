@@ -1,3 +1,5 @@
+import { IResolvers } from 'apollo-server';
+
 import { BankAccount, List } from './_types';
 
 export const typeDef = `
@@ -10,7 +12,7 @@ export const typeDef = `
     id: ID!
     name: String
     accounting: Int
-    bank: String
+    bankName: String
     type: BankAccountType
   }
 
@@ -25,11 +27,11 @@ export const typeDef = `
   }
 `;
 
-export const resolvers = {
+export const resolvers: IResolvers = {
   Query: {
     bankAccountList: (
       pageNum: number = 1,
-      count: number = 10,
+      count: number = -1,
     ): List<BankAccount> => {
       return {
         page: {
@@ -37,15 +39,23 @@ export const resolvers = {
           count,
           pageTotal: 1,
         },
-        list: [],
+        list: [
+          {
+            id: '1',
+            name: 'Bank Account',
+            accounting: 111000,
+            bankName: 'Bank',
+            type: 'CHECKING',
+          },
+        ],
       };
     },
-    bankAccount: ({}, { id }: { id: string }): BankAccount => {
+    bankAccount: (_, { id }: { id: string }): BankAccount => {
       return {
         id,
         name: 'Bank Account',
         accounting: 111000,
-        bank: 'Bank',
+        bankName: 'Bank',
         type: 'CHECKING',
       };
     },

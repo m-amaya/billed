@@ -17,7 +17,7 @@ export interface BankAccount {
   id: string;
   name: string;
   accounting: number;
-  bank: string;
+  bankName: string;
   type: BankAccountType;
 }
 

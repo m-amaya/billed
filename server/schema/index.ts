@@ -1,11 +1,14 @@
 import { makeExecutableSchema } from 'apollo-server';
-import { merge } from 'ramda';
+import { mergeWith } from 'ramda';
 
 import {
   typeDef as BankAccount,
   resolvers as bankAccountResolvers,
 } from './bank-account';
-import { typeDef as BankStatement } from './bank-statement';
+import {
+  typeDef as BankStatement,
+  resolvers as bankStatementResolvers,
+} from './bank-statement';
 import { typeDef as BankTransaction } from './bank-transaction';
 import { typeDef as Category } from './category';
 import { typeDef as CreditCardAccount } from './credit-card-account';
@@ -25,6 +28,12 @@ const Query = `
   }
 `;
 
+const resolvers = mergeWith(
+  (queryA, queryB) => ({ ...queryA, ...queryB }),
+  bankAccountResolvers,
+  bankStatementResolvers,
+);
+
 export default makeExecutableSchema({
   typeDefs: [
     Query,
@@ -37,5 +46,5 @@ export default makeExecutableSchema({
     CreditCardTransaction,
     Merchant,
   ],
-  resolvers: merge({}, bankAccountResolvers),
+  resolvers,
 });
