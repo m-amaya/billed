@@ -1,4 +1,4 @@
-import { BankAccount, BankAccountList } from './_types';
+import { BankAccount, List } from './_types';
 
 export const typeDef = `
   enum BankAccountType {
@@ -30,7 +30,7 @@ export const resolvers = {
     bankAccountList: (
       pageNum: number = 1,
       count: number = 10,
-    ): BankAccountList => {
+    ): List<BankAccount> => {
       return {
         page: {
           pageNum,

@@ -5,7 +5,7 @@ export const typeDef = `
     limit: Float
     apr: Float
     cardNumber: Int
-    expDate: Int
+    expDate: String
     network: String
   }
 `;

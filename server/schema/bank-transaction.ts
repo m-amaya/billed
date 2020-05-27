@@ -11,6 +11,7 @@ export const typeDef = `
     description: String
     merchant: Merchant
     type: BankTransactionType
+    category: Category
     amount: Float
     isPending: Boolean
     bank: BankAccount
