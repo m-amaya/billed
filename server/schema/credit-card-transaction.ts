@@ -2,6 +2,7 @@ import { IResolvers } from 'apollo-server';
 
 import {
   Category,
+  Context,
   CreditCardAccount,
   CreditCardTransaction,
   List,
@@ -42,7 +43,7 @@ type CreditCardTransactionForGraph = Omit<
   cardId: string;
 };
 
-export const resolvers: IResolvers<CreditCardTransactionForGraph> = {
+export const resolvers: IResolvers<CreditCardTransactionForGraph, Context> = {
   Query: {
     creditCardTransactionList: (
       _,

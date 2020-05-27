@@ -1,6 +1,13 @@
 import { IResolvers } from 'apollo-server';
 
-import { BankAccount, BankStatement, List, ListArgs, OneArgs } from './_types';
+import {
+  BankAccount,
+  BankStatement,
+  Context,
+  List,
+  ListArgs,
+  OneArgs,
+} from './_types';
 
 export const typeDef = `
   type BankStatement {
@@ -29,7 +36,7 @@ type BankStatementForGraph = Omit<BankStatement, 'bank'> & {
   bankId: string;
 };
 
-export const resolvers: IResolvers<BankStatementForGraph> = {
+export const resolvers: IResolvers<BankStatementForGraph, Context> = {
   Query: {
     bankStatementList: (
       _,

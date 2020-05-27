@@ -1,3 +1,9 @@
+import { DataSources } from '../data-sources';
+
+export interface Context {
+  dataSources: DataSources;
+}
+
 export interface Page {
   pageNum: number;
   count: number;

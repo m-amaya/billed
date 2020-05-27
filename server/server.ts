@@ -1,9 +1,10 @@
 import { ApolloServer } from 'apollo-server';
 import mongoose from 'mongoose';
 
+import dataSources from './data-sources';
 import schema from './schema';
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ schema, dataSources });
 
 mongoose.connect(
   'mongodb://localhost:27017/billed',

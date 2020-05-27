@@ -1,6 +1,7 @@
 import { IResolvers } from 'apollo-server';
 
 import {
+  Context,
   CreditCardAccount,
   CreditCardStatement,
   List,
@@ -36,7 +37,7 @@ type CreditCardStatementForGraph = Omit<CreditCardStatement, 'card'> & {
   cardId: string;
 };
 
-export const resolvers: IResolvers<CreditCardStatementForGraph> = {
+export const resolvers: IResolvers<CreditCardStatementForGraph, Context> = {
   Query: {
     creditCardStatementList: (
       _,

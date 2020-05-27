@@ -4,6 +4,7 @@ import {
   BankAccount,
   BankTransaction,
   Category,
+  Context,
   List,
   ListArgs,
   Merchant,
@@ -49,7 +50,7 @@ type BankTransactionForGraph = Omit<
   bankId: string;
 };
 
-export const resolvers: IResolvers<BankTransactionForGraph> = {
+export const resolvers: IResolvers<BankTransactionForGraph, Context> = {
   Query: {
     bankTransactionList: (
       _,
