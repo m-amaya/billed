@@ -1,6 +1,6 @@
 import { IResolvers } from 'apollo-server';
 
-import { BankAccount, BankStatement, List } from './_types';
+import { BankAccount, BankStatement, List, ListArgs, OneArgs } from './_types';
 
 export const typeDef = `
   type BankStatement {
@@ -29,11 +29,11 @@ type BankStatementForGraph = Omit<BankStatement, 'bank'> & {
   bankId: string;
 };
 
-export const resolvers: IResolvers = {
+export const resolvers: IResolvers<BankStatementForGraph> = {
   Query: {
     bankStatementList: (
-      pageNum: number = 1,
-      count: number = -1,
+      _,
+      { pageNum = 1, count = -1 }: ListArgs,
     ): List<BankStatementForGraph> => {
       return {
         page: {
@@ -55,7 +55,7 @@ export const resolvers: IResolvers = {
         ],
       };
     },
-    bankStatement: (_, { id }: { id: string }): BankStatementForGraph => {
+    bankStatement: (_, { id }: OneArgs): BankStatementForGraph => {
       return {
         id,
         startDate: Date.now(),
@@ -69,7 +69,7 @@ export const resolvers: IResolvers = {
     },
   },
   BankStatement: {
-    bank: ({ bankId }: BankStatementForGraph): BankAccount => {
+    bank: ({ bankId }): BankAccount => {
       return {
         id: bankId,
         name: 'Bank Account',

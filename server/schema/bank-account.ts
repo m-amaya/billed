@@ -1,6 +1,6 @@
 import { IResolvers } from 'apollo-server';
 
-import { BankAccount, List } from './_types';
+import { BankAccount, List, ListArgs, OneArgs } from './_types';
 
 export const typeDef = `
   enum BankAccountType {
@@ -30,8 +30,8 @@ export const typeDef = `
 export const resolvers: IResolvers = {
   Query: {
     bankAccountList: (
-      pageNum: number = 1,
-      count: number = -1,
+      _,
+      { pageNum = 1, count = -1 }: ListArgs,
     ): List<BankAccount> => {
       return {
         page: {
@@ -41,7 +41,7 @@ export const resolvers: IResolvers = {
         },
         list: [
           {
-            id: '1',
+            id: 'bank-acct-1234',
             name: 'Bank Account',
             accounting: 111000,
             bankName: 'Bank',
@@ -50,7 +50,7 @@ export const resolvers: IResolvers = {
         ],
       };
     },
-    bankAccount: (_, { id }: { id: string }): BankAccount => {
+    bankAccount: (_, { id }: OneArgs): BankAccount => {
       return {
         id,
         name: 'Bank Account',

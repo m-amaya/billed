@@ -1,3 +1,13 @@
+import { IResolvers } from 'apollo-server';
+
+import {
+  CreditCardAccount,
+  CreditCardStatement,
+  List,
+  ListArgs,
+  OneArgs,
+} from './_types';
+
 export const typeDef = `
   type CreditCardStatement {
     id: ID!
@@ -10,4 +20,74 @@ export const typeDef = `
     dueDate: Int
     card: CreditCardAccount
   }
+
+  type CreditCardStatementList {
+    page: Page!
+    list: [CreditCardStatement]!
+  }
+
+  extend type Query {
+    creditCardStatementList(pageNum: Int, count: Int): CreditCardStatementList
+    creditCardStatement(id: ID!): CreditCardStatement
+  }
 `;
+
+type CreditCardStatementForGraph = Omit<CreditCardStatement, 'card'> & {
+  cardId: string;
+};
+
+export const resolvers: IResolvers<CreditCardStatementForGraph> = {
+  Query: {
+    creditCardStatementList: (
+      _,
+      { pageNum = 1, count = -1 }: ListArgs,
+    ): List<CreditCardStatementForGraph> => {
+      return {
+        page: {
+          pageNum,
+          count,
+          pageTotal: 1,
+        },
+        list: [
+          {
+            id: 'cc-statement-1234',
+            startDate: Date.now(),
+            endDate: Date.now(),
+            begBalance: 12.34,
+            credit: 0,
+            debt: 0,
+            endBalance: 12.34,
+            dueDate: Date.now(),
+            cardId: 'card-1234',
+          },
+        ],
+      };
+    },
+    creditCardStatement: (_, { id }: OneArgs): CreditCardStatementForGraph => {
+      return {
+        id,
+        startDate: Date.now(),
+        endDate: Date.now(),
+        begBalance: 12.34,
+        credit: 0,
+        debt: 0,
+        endBalance: 12.34,
+        dueDate: Date.now(),
+        cardId: 'card-1234',
+      };
+    },
+  },
+  CreditCardStatement: {
+    card: ({ cardId }): CreditCardAccount => {
+      return {
+        id: cardId,
+        name: 'Card Name',
+        limit: 1000,
+        apr: 12.2,
+        cardNumber: 111000,
+        expDate: '01/04',
+        network: 'Network',
+      };
+    },
+  },
+};

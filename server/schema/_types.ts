@@ -13,6 +13,10 @@ export interface List<T> {
   list: T[];
 }
 
+export type ListArgs = Partial<Omit<Page, 'pageTotal'>>;
+
+export type OneArgs = { id: string };
+
 export interface BankAccount {
   id: string;
   name: string;
