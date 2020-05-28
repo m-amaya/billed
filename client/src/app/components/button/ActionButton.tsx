@@ -15,6 +15,7 @@ export const ActionButton: React.FC = ({ children }) => {
 };
 
 const Button = styled.button({
+  'display': 'flex',
   'border': `1px solid ${rgba('#B2B2B2', 0.5)}`,
   'borderRadius': 5,
   'color': '#6744C8',

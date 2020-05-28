@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { ActionButton } from 'app/components/button/ActionButton';
 import routes from 'app/routes';
 import bp from 'styles/breakpoint';
+import useWindowSize from 'utils/hooks/useWindowSize';
 
 import { TabLink } from './TabLink';
 
@@ -44,6 +45,7 @@ const TABS: Record<
 export const TabNav: React.FC = () => {
   const location = useLocation();
   const [tabKey, setKey] = useState<TabKeyType>('summary');
+  const [width] = useWindowSize();
 
   useEffect(() => {
     if (location.pathname.includes(routes.page.summary)) {
@@ -70,10 +72,12 @@ export const TabNav: React.FC = () => {
           />
         ))}
       </LeftWrap>
-      <RightWrap>
-        <ActionButton>Transaction</ActionButton>
-        <ActionButton>Bill</ActionButton>
-      </RightWrap>
+      {width > bp.desktop && (
+        <RightWrap>
+          <ActionButton>Transaction</ActionButton>
+          <ActionButton>Bill</ActionButton>
+        </RightWrap>
+      )}
     </Wrapper>
   );
 };
@@ -82,7 +86,7 @@ const Wrapper = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   height: 70,
-  padding: '0 50px',
+  padding: '0 40px',
   minWidth: bp.tablet,
   width: '100%',
 });

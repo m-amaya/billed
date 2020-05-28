@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
@@ -9,8 +10,7 @@ import routes from 'app/routes';
 
 export const SettingsPage: React.FC = () => {
   return (
-    <div>
-      Settings Page
+    <Page>
       <Switch>
         <Route path={routes.settings.accounts}>
           <AccountsPage />
@@ -28,6 +28,11 @@ export const SettingsPage: React.FC = () => {
           <Redirect to={routes.settings.accounts} />
         </Route>
       </Switch>
-    </div>
+    </Page>
   );
 };
+
+const Page = styled.div({
+  display: 'flex',
+  height: '100%',
+});

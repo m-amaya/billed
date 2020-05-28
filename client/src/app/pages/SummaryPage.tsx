@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
@@ -9,8 +10,7 @@ import routes from 'app/routes';
 
 export const SummaryPage: React.FC = () => {
   return (
-    <div>
-      Summary Page
+    <Page>
       <Switch>
         <Route path={routes.summary.overview}>
           <OverviewPage />
@@ -28,6 +28,12 @@ export const SummaryPage: React.FC = () => {
           <Redirect to={routes.summary.overview} />
         </Route>
       </Switch>
-    </div>
+    </Page>
   );
 };
+
+const Page = styled.div({
+  display: 'flex',
+  height: '100%',
+  padding: 40,
+});

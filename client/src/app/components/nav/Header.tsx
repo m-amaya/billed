@@ -43,7 +43,7 @@ const Wrapper = styled.div({
   display: 'flex',
   justifyContent: 'space-between',
   backgroundColor: '#6744C8',
-  padding: '0 50px',
+  padding: '0 40px',
   height: 70,
   minWidth: bp.tablet,
   width: '100%',

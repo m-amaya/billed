@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
@@ -7,8 +8,7 @@ import routes from 'app/routes';
 
 export const TrendsPage: React.FC = () => {
   return (
-    <div>
-      Trends Page
+    <Page>
       <Switch>
         <Route path={routes.trends.budgeting}>
           <BudgetingPage />
@@ -20,6 +20,12 @@ export const TrendsPage: React.FC = () => {
           <Redirect to={routes.trends.budgeting} />
         </Route>
       </Switch>
-    </div>
+    </Page>
   );
 };
+
+const Page = styled.div({
+  display: 'flex',
+  height: '100%',
+  padding: 40,
+});

@@ -19,6 +19,7 @@ export const PATHS = {
     app: resolve(SOURCE, 'app'),
     assets: resolve(SOURCE, 'assets'),
     styles: resolve(SOURCE, 'styles'),
+    utils: resolve(SOURCE, 'utils'),
   },
 };
 

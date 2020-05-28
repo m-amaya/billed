@@ -44,7 +44,7 @@ const Page = styled.div({
 });
 
 const NavBar = styled.div({
-  position: 'fixed',
+  position: 'absolute',
   top: 0,
   left: 0,
   backgroundColor: '#FFFFFF',
