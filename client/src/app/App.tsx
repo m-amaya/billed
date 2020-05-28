@@ -5,15 +5,16 @@ import { Route, Switch } from 'react-router-dom';
 
 import { BasePage } from 'app/pages/BasePage';
 import { LoginPage } from 'app/pages/LoginPage';
+import routes from 'app/routes';
 
 export const App: React.FC = hot(() => {
   return (
     <RootPage>
       <Switch>
-        <Route exact path="/">
+        <Route path={routes.root.base}>
           <BasePage />
         </Route>
-        <Route path="/login">
+        <Route path={routes.root.login}>
           <LoginPage />
         </Route>
       </Switch>
