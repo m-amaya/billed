@@ -1,5 +1,5 @@
 {
-  "name": "billed",
+  "name": "billed-api",
   "version": "1.0.0",
   "description": "GraphQL API for managing bills",
   "main": "./server.ts",

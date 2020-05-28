@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="125px" height="38px" viewBox="0 0 125 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-681.000000, -343.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(681.000000, 343.000000)">
+                <text id="Billed" font-family="Mohave" font-size="35" font-weight="normal">
+                    <tspan x="48" y="35">Billed</tspan>
+                </text>
+                <g id="seedling-solid" fill-rule="nonzero">
+                    <path d="M5,5 L0,5 C0,14.6640625 7.8359375,22.5 17.5,22.5 L17.5,33.75 C17.5,34.4375 18.0625,35 18.75,35 L21.25,35 C21.9375,35 22.5,34.4375 22.5,33.75 L22.5,22.5 C22.5,12.8359375 14.6640625,5 5,5 Z M35,0 C28.421875,0 22.703125,3.6328125 19.7109375,9 C21.875,11.359375 23.4765625,14.2265625 24.3203125,17.40625 C33.125,16.4921875 40,9.0546875 40,0 L35,0 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
