@@ -16,7 +16,6 @@ const globalStyles = css({
     'height': '100vh',
     'minHeight': 800,
     'minWidth': bp.tablet,
-    'overflow': 'hidden',
 
     /** Font smoothing */
     'MozOsxFontSmoothing': 'grayscale',
