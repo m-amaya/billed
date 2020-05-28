@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
+import { Calendar } from 'app/components/calendar/Calendar';
 import { Card } from 'app/components/card/Card';
 import { CardRow } from 'app/components/card/CardRow';
 import { DividerRow } from 'app/components/card/DividerRow';
@@ -14,21 +15,22 @@ export const OverviewPage: React.FC = () => {
       <LeftCol>
         <Statbar>
           <Stat
-            label="Income (Month)"
+            label="Income (May)"
             runningTotal="$3,453.52"
             total="$8,514.12"
           />
           <Stat
-            label="Bills (Month)"
+            label="Bills (May)"
             runningTotal="$3,453.52"
             total="$8,514.12"
           />
           <Stat
-            label="Balance (Month)"
+            label="Balance (May)"
             runningTotal="$3,453.52"
             total="$8,514.12"
           />
         </Statbar>
+        <Calendar />
       </LeftCol>
       <RightCol>
         <Card style={{ width: '100%', maxHeight: '100%', overflowY: 'auto' }}>

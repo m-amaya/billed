@@ -37,7 +37,7 @@ const Container = styled.div({
 
 const Label = styled.div({
   color: '#9B98A6',
-  fontSize: 14,
+  fontSize: 13,
   paddingBottom: 5,
 });
 
