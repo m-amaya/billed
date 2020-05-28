@@ -11,8 +11,6 @@ const globalStyles = css({
     'fontFamily': font.family,
     'fontSize': font.size,
     'fontWeight': font.weight.regular,
-    'letterSpacing': '0.01rem',
-    'lineHeight': 1.43,
     'height': '100vh',
     'minHeight': 800,
     'minWidth': bp.tablet,
