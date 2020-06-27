@@ -1,4 +1,5 @@
-import Flex from 'components/Flex';
+import { FixedColumn, GrowColumn } from 'components/layout/Column';
+import Content from 'components/layout/Content';
 import Nav from 'components/nav';
 import { GetServerSideProps } from 'next';
 import React from 'react';
@@ -11,7 +12,10 @@ const TransactionsPage: React.FC<Props> = ({ activePath = '' }) => {
   return (
     <>
       <Nav activePath={activePath} />
-      <Flex grow>content</Flex>
+      <Content>
+        <FixedColumn>column</FixedColumn>
+        <GrowColumn side="right">content</GrowColumn>
+      </Content>
     </>
   );
 };

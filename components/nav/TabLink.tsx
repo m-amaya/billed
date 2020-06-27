@@ -50,7 +50,7 @@ const FAIcon = styled(FontAwesomeIcon)({
 const Label = styled.span<{ isActive: boolean }>(({ isActive }) => ({
   color: '#6744C8',
   fontSize: 16,
-  fontWeight: isActive ? 700 : 400,
+  fontWeight: isActive ? 600 : 400,
 }));
 
 export default TabLink;

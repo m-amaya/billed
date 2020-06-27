@@ -20,8 +20,13 @@ const Nav: React.FC<Props> = ({ activePath }) => {
 };
 
 const Bar = styled(Flex)({
+  position: 'fixed',
+  top: 0,
+  left: 0,
   backgroundColor: '#FFF',
   boxShadow: `0 2px 4px ${rgba('#B2B2B2', 0.5)}`,
+  width: '100%',
+  zIndex: 100,
 });
 
 export default Nav;

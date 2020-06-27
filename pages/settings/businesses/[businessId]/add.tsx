@@ -1,4 +1,5 @@
-import Flex from 'components/Flex';
+import { SidebarColumn, DetailColumn } from 'components/layout/Column';
+import Content from 'components/layout/Content';
 import Nav from 'components/nav';
 import { GetServerSideProps } from 'next';
 import React from 'react';
@@ -15,7 +16,10 @@ const AddBusinessPage: React.FC<Props> = ({
   return (
     <>
       <Nav activePath={activePath} />
-      <Flex grow>content</Flex>
+      <Content>
+        <SidebarColumn>sidebar</SidebarColumn>
+        <DetailColumn>details</DetailColumn>
+      </Content>
     </>
   );
 };
