@@ -1,0 +1,29 @@
+{
+  "name": "billed",
+  "version": "1.0.0",
+  "description": "Manage bills",
+  "main": "pages/index.tsx",
+  "repository": "git@github.com:m-amaya/billed.git",
+  "author": "Marissa Amaya <mamaya.dev@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@types/node": "^14.0.14",
+    "@types/react": "^16.9.41",
+    "typescript": "^3.9.5"
+  }
+}
