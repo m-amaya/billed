@@ -17,7 +17,7 @@ const Flex = styled.div<Props>(
     right = false,
     grow = false,
     spaceBetween = false,
-    width = '100%',
+    width = 'auto',
     height = 'auto',
   }) => {
     let alignItems, justifyContent;

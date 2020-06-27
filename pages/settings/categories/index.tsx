@@ -7,7 +7,8 @@ interface Props {
   activePath: string;
 }
 
-const BillsPage: React.FC<Props> = ({ activePath = '' }) => {
+const CategoryOverviewPage: React.FC<Props> = ({ activePath = '' }) => {
+  /** TODO: Re-route to detail page */
   return (
     <>
       <Nav activePath={activePath} />
@@ -16,7 +17,7 @@ const BillsPage: React.FC<Props> = ({ activePath = '' }) => {
   );
 };
 
-export default BillsPage;
+export default CategoryOverviewPage;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const activePath = ctx.req.url;
