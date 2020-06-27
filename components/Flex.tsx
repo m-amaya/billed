@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 interface Props {
   row?: boolean;
   center?: 'x' | 'y' | boolean;
+  right?: boolean;
   grow?: boolean;
   spaceBetween?: boolean;
   width?: string | number;
@@ -13,6 +14,7 @@ const Flex = styled.div<Props>(
   ({
     row = false,
     center = false,
+    right = false,
     grow = false,
     spaceBetween = false,
     width = '100%',
@@ -33,6 +35,14 @@ const Flex = styled.div<Props>(
         alignItems = 'center';
       } else {
         justifyContent = 'center';
+      }
+    }
+
+    if (right) {
+      if (row) {
+        justifyContent = 'right';
+      } else {
+        alignItems = 'flex-end';
       }
     }
 
