@@ -1,19 +1,28 @@
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Cookie from 'js-cookie';
+import { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import React from 'react';
+import cookies from 'next-cookies';
+import React, { useEffect } from 'react';
 import { routes } from 'utils/routes';
 
-const IndexPage: React.FC = () => {
-  const router = useRouter();
-  const authCookie = Cookie.get('auth');
+const LoginPage = dynamic(() => import('./login'));
 
-  console.log({ authCookie });
+interface Props {
+  loggedIn: boolean;
+}
 
-  if (!authCookie) {
-    router.push(routes.login);
-  }
+const IndexPage: React.FC<Props> = ({ loggedIn }) => {
+  const Router = useRouter();
+
+  useEffect(() => {
+    if (!loggedIn) {
+      Router.replace('/', routes.login, { shallow: true });
+    }
+  }, [loggedIn]);
+
+  if (!loggedIn) return <LoginPage />;
 
   return (
     <Test>
@@ -25,3 +34,18 @@ const IndexPage: React.FC = () => {
 const Test = styled.div({});
 
 export default IndexPage;
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { auth } = cookies(ctx);
+  let loggedIn = false;
+
+  if (auth) {
+    loggedIn = true;
+  }
+
+  return {
+    props: {
+      loggedIn,
+    },
+  };
+};
