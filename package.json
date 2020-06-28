@@ -20,6 +20,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "apollo-datasource-mongodb": "^0.2.6",
+    "apollo-server": "^2.15.0",
     "color": "^3.1.2",
     "graphql": "^15.1.0",
     "mongoose": "^5.9.20",

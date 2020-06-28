@@ -1,6 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
-
-export type AccountType = 'BANK' | 'CC';
+import { AccountType } from 'graphql/types/models/BankStatement';
 
 /**
  * Represents a monthly statement for an account.

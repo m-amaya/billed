@@ -1,6 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
-
-export type BudgetSource = 'BANK' | 'CC' | 'CATEGORY';
+import { BudgetSource } from 'graphql/types/models/Budget';
 
 /**
  * Represents a monthly budget for an account or category.

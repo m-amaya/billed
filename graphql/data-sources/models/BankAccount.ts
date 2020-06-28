@@ -1,6 +1,5 @@
 import { Document, Schema, model } from 'mongoose';
-
-export type BankAccountType = 'CHECKING' | 'SAVINGS' | 'CD';
+import { BankAccountType } from 'graphql/types/models/BankAccount';
 
 /**
  * Represents a user's bank account.

@@ -1,19 +1,10 @@
 import { Document, Schema, model } from 'mongoose';
-import { AccountType } from './BankStatement';
-
-export type TransactionType = 'CREDIT' | 'DEBIT';
-export type CreditSource =
-  | 'INDIVIDUAL'
-  | 'BUSINESS'
-  | 'BANK'
-  | 'DEPOSIT'
-  | 'IRS';
-export type DebitSource =
-  | 'INDIVIDUAL'
-  | 'BUSINESS'
-  | 'BANK'
-  | 'WITHDRAWAL'
-  | 'CC';
+import { BankAccountType } from 'graphql/types/models/BankAccount';
+import {
+  TransactionType,
+  CreditSource,
+  DebitSource,
+} from 'graphql/types/models/Transaction';
 
 /**
  * Represents a transaction on a statement.
@@ -36,7 +27,7 @@ export interface TransactionDocument extends Document {
   amount: number;
   categoryId?: Schema.Types.ObjectId;
   forStatementId?: Schema.Types.ObjectId;
-  onAccount: AccountType;
+  onAccount: BankAccountType;
   onBankId?: Schema.Types.ObjectId;
   onCCId?: Schema.Types.ObjectId;
   isPending: boolean;
