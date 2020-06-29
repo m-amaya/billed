@@ -1,4 +1,5 @@
 import { Types } from 'mongoose';
+import { Budget } from './Budget';
 
 export type BankAccountType = 'CHECKING' | 'SAVINGS' | 'CD';
 
@@ -12,4 +13,8 @@ export interface BankAccount {
   routingNumber: string;
   bankName: string;
   type: BankAccountType;
+  term?: number;
+  maturityDate?: number;
+  APY?: number;
+  budget?: Budget;
 }
